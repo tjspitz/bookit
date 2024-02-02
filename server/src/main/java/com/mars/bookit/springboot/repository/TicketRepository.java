@@ -9,4 +9,14 @@ import com.mars.bookit.springboot.entity.Ticket;
  */
 public interface TicketRepository extends JpaRepository<Ticket, String> {
 
+    /**
+     * @param pnr
+     * @return Ticket
+     */
+    public Ticket findTicketByPnr(String pnr);
+    
+    /**
+     * @param pnr
+     */
+    public void deleteTicketByPnr(String pnr);
 }
