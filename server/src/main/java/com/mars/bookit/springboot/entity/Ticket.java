@@ -29,6 +29,8 @@ public class Ticket {
     private Date bookedOn;
     private Date lastUpdated;
     private Date travelDate;
+    
+    private String status;
 }
 
 // @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
