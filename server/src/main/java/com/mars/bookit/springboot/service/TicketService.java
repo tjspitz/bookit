@@ -36,6 +36,12 @@ public interface TicketService {
     
     /**
      * @param pnr
+     * @return Ticket
+     */
+    public Ticket putTicketConfirmedByPnr(String pnr);
+    
+    /**
+     * @param pnr
      */
     public void deleteTicketByPnr(String pnr);
 }

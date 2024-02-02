@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.mars.bookit.springboot.entity.Ticket;
 import com.mars.bookit.springboot.model.Passenger;
 import com.mars.bookit.springboot.repository.TicketRepository;
@@ -13,11 +16,13 @@ import com.mars.bookit.springboot.repository.TicketRepository;
 /**
  * @author tjspitz
  */
+@Service
 public class TicketServiceImpl implements TicketService {
 
     /**
      * @param repository
      */
+    @Autowired
     public TicketServiceImpl(TicketRepository repository) {
         super();
         this.repository = repository;
@@ -69,10 +74,22 @@ public class TicketServiceImpl implements TicketService {
             postUpdateTicket.setToStation(ticket.getToStation());
             postUpdateTicket.setFromStation(ticket.getFromStation());
             postUpdateTicket.setTravelDate(ticket.getTravelDate());
-            postUpdateTicket.setLastUpdated(ticket.getLastUpdated());
+            postUpdateTicket.setLastUpdated(java.time.LocalDateTime.now());
             postUpdateTicket.setTrainNo(ticket.getTrainNo());
             postUpdateTicket.setFare(postUpdateTicket.getFare() * 1.5);
             
+            return repository.save(postUpdateTicket);
+        }
+        return null;
+    }
+    
+    @Override
+    public Ticket putTicketConfirmedByPnr(String pnr) {
+        Optional<Ticket> preUpdateTicket = repository.findById(pnr);
+        
+        if (preUpdateTicket.isPresent()) {
+            Ticket postUpdateTicket = preUpdateTicket.get();
+            postUpdateTicket.setStatus("confirmed");
             return repository.save(postUpdateTicket);
         }
         return null;
