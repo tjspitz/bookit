@@ -1,6 +1,6 @@
 package com.mars.bookit.springboot.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,9 +14,10 @@ import lombok.NoArgsConstructor;
 @Data
 public class Passenger {
 
-    private String name;
+    private String firstName;
+    private String lastName;
     private String fromStation;
     private String toStation;
     private String trainNo;
-    private Date travelDate;
+    private LocalDate travelDate;
 }

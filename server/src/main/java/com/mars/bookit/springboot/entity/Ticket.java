@@ -1,6 +1,7 @@
 package com.mars.bookit.springboot.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -19,18 +20,18 @@ public class Ticket {
 
     @Id
     private String pnr;
+    
     private String firstName;
     private String lastName;
     private String fromStation;
     private String toStation;
     private String trainNo;
-    private double fare;
+    private LocalDateTime bookedOn;
     
-    private Date bookedOn;
-    private Date lastUpdated;
-    private Date travelDate;
-    
+    private LocalDate travelDate;    
+    private LocalDateTime lastUpdated;
     private String status;
+    private double fare;
 }
 
 // @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
