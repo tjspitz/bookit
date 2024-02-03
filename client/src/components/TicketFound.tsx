@@ -1,6 +1,12 @@
 import { Card, ListGroup } from 'react-bootstrap';
 import { TicketInfo } from '../lib/types';
 
+const niceDate = (dateString: string) => {
+  const date = new Date(dateString);
+  console.log(date)
+  return date.toLocaleString('en-US');
+};
+
 const TicketFound = ({ ticket }: { ticket: TicketInfo }) => {
   const {
     pnr,
@@ -27,14 +33,14 @@ const TicketFound = ({ ticket }: { ticket: TicketInfo }) => {
           {firstName}&nbsp;{lastName}
         </Card.Title>
         <ListGroup className="list-group-flush">
-          <ListGroup.Item>From: {fromStation}</ListGroup.Item>
-          <ListGroup.Item>To: {toStation}</ListGroup.Item>
-          <ListGroup.Item>Train No.: {trainNo}</ListGroup.Item>
-          <ListGroup.Item>Booked On: {bookedOn.toString()}</ListGroup.Item>
-          <ListGroup.Item>Departing On: {travelDate.toString()}</ListGroup.Item>
-          <ListGroup.Item>Updated On: {lastUpdated.toString()}</ListGroup.Item>
-          <ListGroup.Item>Ticket Status: {status}</ListGroup.Item>
-          <ListGroup.Item>Ticket Fare: {fare}</ListGroup.Item>
+          <ListGroup.Item><b>From:</b> {fromStation}</ListGroup.Item>
+          <ListGroup.Item><b>To:</b> {toStation}</ListGroup.Item>
+          <ListGroup.Item><b>Train No.</b> {trainNo}</ListGroup.Item>
+          <ListGroup.Item><b>Booked On:</b> {niceDate(bookedOn)}</ListGroup.Item>
+          <ListGroup.Item><b>Departing On:</b> {niceDate(travelDate)}</ListGroup.Item>
+          <ListGroup.Item><b>Updated On:</b> {niceDate(lastUpdated)}</ListGroup.Item>
+          <ListGroup.Item><b>Ticket Status:</b> {status}</ListGroup.Item>
+          <ListGroup.Item><b>Ticket Fare:</b> ${fare.toPrecision(4)}</ListGroup.Item>
         </ListGroup>
       </Card.Body>
     </Card>

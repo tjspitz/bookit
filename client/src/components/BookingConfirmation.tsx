@@ -40,7 +40,7 @@ const BookingConfirmation = ({
             action
             variant="info"
           >
-            <br>Fare:</br> ${fare.toPrecision(2)}
+            <br>Fare:</br> ${fare.toPrecision(4)}
           </ListGroup.Item>
         </ListGroup>
       </Modal.Body>
