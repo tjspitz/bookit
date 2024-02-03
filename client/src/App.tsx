@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
 import { Button, Container, Form, Row, Stack } from 'react-bootstrap';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 const App = () => {
   const [pnr, setPnr] = useState<string>('');
@@ -10,7 +10,7 @@ const App = () => {
     <main>
       <Container className="m-4 p-2">
         <Row className="text-center m-4">
-          <h1>Welcome to Bookit</h1>
+          <h1>Welcome to BookIt</h1>
         </Row>
         <Row className="text-center m-4 fst-italic">
           <h4>What would you like to do today?</h4>
@@ -51,7 +51,7 @@ const App = () => {
           </Button>
         </Stack>
       </Container>
-      <Container className="m-4 p-2">
+      <Container className="m-4">
         <Outlet />
       </Container>
     </main>
