@@ -4,19 +4,27 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import Booking from './components/Booking';
 import Ticket from './components/Ticket';
+import { getTicketByPnr } from './lib/api';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <App />
-  },
-  {
-    path:"/booking",
-    element: <Booking />
-  },
-  {
-    path: "/tickets/:ticketId",
-    element: <Ticket />
+    path: '/',
+    element: <App />,
+    children: [
+      {
+        path: '/booking',
+        element: <Booking />,
+      },
+      {
+        path: '/tickets/:pnr',
+        element: <Ticket />,
+        loader: async ({ params }) => {
+          const ticket = await getTicketByPnr(params?.pnr || '');
+          return ticket ? ticket : params?.pnr || '';
+        },
+      },
+    ],
   },
 ]);
 
