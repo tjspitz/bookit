@@ -37,7 +37,7 @@
 
 ## 🚀 Getting Started
 
-- You will need to configure your own `application.properties` file within the `/server/src/main/resources` directory, as it is `.gitignore`d
+- You will need to configure your own `application.properties` file within the `/server/src/main/resources` directory, as it is part of `.gitignore`
   - ```
     spring.datasource.url=jdbc:mysql://localhost:3306/<your-db-to-use>
     spring.datasource.username=root
@@ -49,6 +49,6 @@
 - Run `npm install` while within the `/client` directory
   - Run `npm run dev` once packages have installed
 - Either from the Eclipse IDE or from your CLI, boot up the backend
-  - Make sure you are in the `server/src/main/java` dir: `BookitApplication.java`
+  - Make sure you are in the `/server/src/main/java` dir: `BookitApplication.java`
 - Open your browser, go to [localhost](http:localhost:5173), and look around
 
