@@ -109,7 +109,10 @@ const BookingForm = ({
               placeholder="Train Number"
               value={form.trainNo}
               onChange={(e) =>
-                setForm((s) => ({ ...s, trainNo: e.target.value.toUpperCase() }))
+                setForm((s) => ({
+                  ...s,
+                  trainNo: e.target.value.toUpperCase(),
+                }))
               }
             />
           </Form.Group>
