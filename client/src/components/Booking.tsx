@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Container, Figure } from 'react-bootstrap';
-import logo from '../assets/logo.jpg';
+import { Container } from 'react-bootstrap';
+// import logo from '../assets/logo.jpg';
 import { postTicket } from '../lib/api';
 import {
   Confirmation,
@@ -19,12 +19,7 @@ const Booking = () => {
   const [showConfirmation, setShowConfirmation] = useState<boolean>(false);
 
   const handleFormSubmit = async () => {
-    console.log('form is: ', form);
-
     const { pnr, status, fare } = await postTicket(form);
-
-    console.log('confirmation has: ', pnr, status, fare);
-
     setConfirmation({ pnr, status, fare });
     setShowConfirmation(!showConfirmation);
     setForm({ ...initialPassengerState });
@@ -32,13 +27,7 @@ const Booking = () => {
 
   return (
     <>
-      <Figure.Image
-        className="ms-2"
-        width={150}
-        src={logo}
-        alt="train ticket logo"
-      />
-      <Container className="border border-dark rounded p-4 bg-light">
+      <Container className="border border-dark rounded p-4 bg-light-semi">
         <BookingForm
           form={form}
           setForm={setForm}

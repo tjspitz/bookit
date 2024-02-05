@@ -21,6 +21,7 @@ const BookingForm = ({
           >
             <Form.Label>First Name</Form.Label>
             <Form.Control
+              className="bg-white-semi"
               placeholder="First Name"
               value={form.firstName}
               onChange={(e) =>
@@ -36,6 +37,7 @@ const BookingForm = ({
           >
             <Form.Label>Last Name</Form.Label>
             <Form.Control
+              className="bg-white-semi"
               placeholder="Last Name"
               value={form.lastName}
               onChange={(e) =>
@@ -55,6 +57,7 @@ const BookingForm = ({
               Traveling <b>FROM</b> station
             </Form.Label>
             <Form.Control
+              className="bg-white-semi"
               placeholder="Station Name..."
               value={form.fromStation}
               onChange={(e) =>
@@ -72,6 +75,7 @@ const BookingForm = ({
               Traveling <b>TO</b> station
             </Form.Label>
             <Form.Control
+              className="bg-white-semi"
               placeholder="Station Name..."
               value={form.toStation}
               onChange={(e) =>
@@ -91,6 +95,7 @@ const BookingForm = ({
               Traveling <b>ON</b> date
             </Form.Label>
             <Form.Control
+              className="bg-white-semi"
               type="date"
               value={form.travelDate}
               onChange={(e) =>
@@ -106,6 +111,7 @@ const BookingForm = ({
           >
             <Form.Label>Train Number</Form.Label>
             <Form.Control
+              className="bg-white-semi"
               placeholder="Train Number"
               value={form.trainNo}
               onChange={(e) =>
@@ -125,14 +131,14 @@ const BookingForm = ({
       >
         <Button
           type="button"
-          variant="outline-success"
+          variant="dark"
           onClick={handleFormSubmit}
         >
           BookIt!
         </Button>
         <Button
           type="button"
-          variant="outline-danger"
+          variant="outline-dark"
           onClick={() => setForm({ ...initialPassengerState })}
         >
           Reset

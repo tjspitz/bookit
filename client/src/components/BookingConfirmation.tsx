@@ -26,21 +26,21 @@ const BookingConfirmation = ({
         <ListGroup>
           <ListGroup.Item
             action
-            variant="info"
+            variant="light"
           >
             <b>PNR:</b> {pnr}
           </ListGroup.Item>
           <ListGroup.Item
             action
-            variant="info"
+            variant="light"
           >
             <b>Status:</b> {status}
           </ListGroup.Item>
           <ListGroup.Item
             action
-            variant="info"
+            variant="light"
           >
-            <br>Fare:</br> ${fare.toPrecision(4)}
+            <b>Fare:</b> ${fare.toPrecision(4)}
           </ListGroup.Item>
         </ListGroup>
       </Modal.Body>
