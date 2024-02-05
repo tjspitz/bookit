@@ -1,6 +1,17 @@
 import { useState } from 'react';
-import { Button, Container, Form, Row, Stack } from 'react-bootstrap';
+import {
+  Button,
+  Container,
+  Figure,
+  Form,
+  OverlayTrigger,
+  Row,
+  Stack,
+  Tooltip,
+  TooltipProps,
+} from 'react-bootstrap';
 import { Outlet, useNavigate } from 'react-router-dom';
+import logo from './assets/logo.png';
 
 const App = () => {
   const [pnr, setPnr] = useState<string>('');
@@ -12,31 +23,37 @@ const App = () => {
         <Row className="text-center m-4">
           <h1>Welcome to BookIt</h1>
         </Row>
-        <Row className="text-center m-4 fst-italic">
-          <h4>What would you like to do today?</h4>
+        <Row className="text-center text-muted m-4 fst-italic">
+          <h3>What would you like to do today?</h3>
         </Row>
         <Stack
           direction="horizontal"
-          className="m-4"
+          className="p-3 m-4 bg-light-semi border border-dark rounded"
           gap={4}
         >
-          <Button
-            className="w-25"
-            type="button"
-            onClick={() => navigate('/booking')}
+          <OverlayTrigger
+            placement="top"
+            delay={{ show: 250, hide: 400 }}
+            overlay={BookingTip}
           >
-            Book a Ticket
-          </Button>
-          <div className="vr" />
+            <Figure.Image
+              className="p-2 ms-4 img-btn"
+              width={150}
+              src={logo}
+              alt="train ticket logo"
+              onClick={() => navigate('/booking')}
+            />
+          </OverlayTrigger>
+          <div className="vr ms-4" />
           <Form.Control
-            className="me-auto w-50"
+            className="me-auto w-50 bg-white-semi"
             placeholder="Passenger/Ticket No."
             value={pnr}
             onChange={(e) => setPnr(e.target.value.toUpperCase())}
           />
           <Button
             type="button"
-            variant="outline-success"
+            variant="dark"
             onClick={() => navigate(`/tickets/${pnr}`)}
           >
             Search
@@ -44,7 +61,7 @@ const App = () => {
           <div className="vr" />
           <Button
             type="button"
-            variant="outline-danger"
+            variant="outline-dark"
             onClick={() => setPnr('')}
           >
             Reset
@@ -57,5 +74,9 @@ const App = () => {
     </main>
   );
 };
+
+const BookingTip: React.FC<TooltipProps> = (props) => (
+  <Tooltip {...props}>Book a new ticket!</Tooltip>
+);
 
 export default App;
