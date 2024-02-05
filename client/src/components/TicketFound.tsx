@@ -52,7 +52,10 @@ const TicketFound = ({ ticket }: { ticket: TicketInfo }) => {
             <b>Updated On:</b> {niceDate(lastUpdated)}
           </ListGroup.Item>
           <ListGroup.Item>
-            <b>Ticket Status:</b> {status}
+            <b>Ticket Status:</b>{' '}
+            <span className={status === 'pending' ? 'pending' : 'confirmed'}>
+              {status}
+            </span>
           </ListGroup.Item>
           <ListGroup.Item>
             <b>Ticket Fare:</b> ${fare.toPrecision(4)}
