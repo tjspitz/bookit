@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import {
-  Button,
   Container,
   Figure,
-  Form,
   OverlayTrigger,
   Row,
   Stack,
@@ -12,6 +10,7 @@ import {
 } from 'react-bootstrap';
 import { Outlet, useNavigate } from 'react-router-dom';
 import logo from './assets/logo.png';
+import SearchBar from './components/SearchBar';
 
 const App = () => {
   const [pnr, setPnr] = useState<string>('');
@@ -45,27 +44,10 @@ const App = () => {
             />
           </OverlayTrigger>
           <div className="vr ms-4" />
-          <Form.Control
-            className="me-auto w-50 bg-white-semi"
-            placeholder="Passenger/Ticket No."
-            value={pnr}
-            onChange={(e) => setPnr(e.target.value.toUpperCase())}
+          <SearchBar
+            pnr={pnr}
+            setPnr={setPnr}
           />
-          <Button
-            type="button"
-            variant="dark"
-            onClick={() => navigate(`/tickets/${pnr}`)}
-          >
-            Search
-          </Button>
-          <div className="vr" />
-          <Button
-            type="button"
-            variant="outline-dark"
-            onClick={() => setPnr('')}
-          >
-            Reset
-          </Button>
         </Stack>
       </Container>
       <Container className="m-4">

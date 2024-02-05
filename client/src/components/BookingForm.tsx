@@ -21,6 +21,7 @@ const BookingForm = ({
           >
             <Form.Label>First Name</Form.Label>
             <Form.Control
+              required
               className="bg-white-semi"
               placeholder="First Name"
               value={form.firstName}
@@ -37,6 +38,7 @@ const BookingForm = ({
           >
             <Form.Label>Last Name</Form.Label>
             <Form.Control
+              required
               className="bg-white-semi"
               placeholder="Last Name"
               value={form.lastName}
@@ -57,6 +59,7 @@ const BookingForm = ({
               Traveling <b>FROM</b> station
             </Form.Label>
             <Form.Control
+              required
               className="bg-white-semi"
               placeholder="Station Name..."
               value={form.fromStation}
@@ -75,6 +78,7 @@ const BookingForm = ({
               Traveling <b>TO</b> station
             </Form.Label>
             <Form.Control
+              required
               className="bg-white-semi"
               placeholder="Station Name..."
               value={form.toStation}
@@ -95,6 +99,7 @@ const BookingForm = ({
               Traveling <b>ON</b> date
             </Form.Label>
             <Form.Control
+              required
               className="bg-white-semi"
               type="date"
               value={form.travelDate}
@@ -111,6 +116,7 @@ const BookingForm = ({
           >
             <Form.Label>Train Number</Form.Label>
             <Form.Control
+              required
               className="bg-white-semi"
               placeholder="Train Number"
               value={form.trainNo}
