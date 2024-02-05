@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 
 const TicketNotFound = ({ pnr }: { pnr: string }) => {
   const navigate = useNavigate();
-  
+
   return (
     <Card
       className="w-50"
