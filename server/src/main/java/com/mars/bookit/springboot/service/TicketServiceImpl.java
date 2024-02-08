@@ -19,6 +19,8 @@ import com.mars.bookit.springboot.repository.TicketRepository;
 @Service
 public class TicketServiceImpl implements TicketService {
 
+    private final TicketRepository repository;
+
     /**
      * @param repository
      */
@@ -27,8 +29,6 @@ public class TicketServiceImpl implements TicketService {
         super();
         this.repository = repository;
     }
-    
-    private TicketRepository repository;
 
     @Override
     public List<Ticket> getAllTickets() {
@@ -65,7 +65,7 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public Ticket putTicketByPnr(Ticket ticket, String pnr) {
         Optional<Ticket> preUpdateTicket = repository.findById(pnr);
-        
+
         if (preUpdateTicket.isPresent()) {
             Ticket postUpdateTicket = preUpdateTicket.get();
 
@@ -77,16 +77,16 @@ public class TicketServiceImpl implements TicketService {
             postUpdateTicket.setLastUpdated(java.time.LocalDateTime.now());
             postUpdateTicket.setTrainNo(ticket.getTrainNo());
             postUpdateTicket.setFare(postUpdateTicket.getFare() * 1.5);
-            
+
             return repository.save(postUpdateTicket);
         }
         return null;
     }
-    
+
     @Override
     public Ticket putTicketConfirmedByPnr(String pnr) {
         Optional<Ticket> preUpdateTicket = repository.findById(pnr);
-        
+
         if (preUpdateTicket.isPresent()) {
             Ticket postUpdateTicket = preUpdateTicket.get();
             postUpdateTicket.setStatus("confirmed");
