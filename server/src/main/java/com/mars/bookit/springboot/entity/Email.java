@@ -14,12 +14,10 @@ public class Email {
 	private int id;
 	private String recipient;
 	private String subject;
-	private String body;
 
-	public Email(String recipient, String subject, String body) {
+	public Email(String recipient, String subject) {
 		super();
 		this.recipient = recipient;
 		this.subject = subject;
-		this.body = body;
 	}
 }
