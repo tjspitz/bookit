@@ -5,6 +5,10 @@ import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * currently not in use, but available
+ * @author tjspitz
+ */
 @Data
 @Entity
 @NoArgsConstructor
