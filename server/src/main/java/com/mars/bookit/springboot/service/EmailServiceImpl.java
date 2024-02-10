@@ -9,7 +9,8 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import com.mars.bookit.springboot.entity.Email;
-import com.mars.bookit.springboot.model.EmailRequest;
+import com.mars.bookit.springboot.model.HtmlEmailRequest;
+import com.mars.bookit.springboot.model.SimpleEmailRequest;
 import com.mars.bookit.springboot.repository.EmailRepository;
 
 import jakarta.mail.MessagingException;
@@ -26,6 +27,8 @@ public class EmailServiceImpl implements EmailService {
 	private final EmailRepository repository;
 
 	/**
+	 * @param mailSender
+	 * @param templateEngine
 	 * @param repository
 	 */
 	@Autowired
@@ -36,17 +39,16 @@ public class EmailServiceImpl implements EmailService {
 	}
 
 	@Override
-	public void sendSimpleEmail(EmailRequest details) {
+	public void sendSimpleEmail(SimpleEmailRequest details) {
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setTo(details.getRecipient());
 		message.setSubject(details.getSubject());
 		message.setText(details.getBody());
 		mailSender.send(message);
-		saveEmailRecord(details);
 	}
 
 	@Override
-	public void sendHtmlEmail(EmailRequest details, String templateName, Context context) {
+	public void sendHtmlEmail(HtmlEmailRequest details, String templateName, Context context) {
 		MimeMessage mimeMessage = mailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, "UTF-8");
 
@@ -56,7 +58,6 @@ public class EmailServiceImpl implements EmailService {
 			String htmlContent = templateEngine.process(templateName, context);
 			helper.setText(htmlContent, true);
 			mailSender.send(mimeMessage);
-			saveEmailRecord(details);
 		} catch (MessagingException e) {
 			System.out.println("Error sending HTML email...");
 			e.printStackTrace();
@@ -64,7 +65,7 @@ public class EmailServiceImpl implements EmailService {
 	}
 
 	@Override
-	public void saveEmailRecord(EmailRequest details) {
+	public void saveEmailRecord(SimpleEmailRequest details) {
 		Email record = new Email();
 		record.setRecipient(details.getRecipient());
 		record.setSubject(details.getSubject());

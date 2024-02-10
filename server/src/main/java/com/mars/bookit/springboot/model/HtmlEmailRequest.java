@@ -1,15 +1,22 @@
 package com.mars.bookit.springboot.model;
 
+import java.time.LocalDate;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author tjspitz
+ */
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-public class EmailRequest {
-
-	private String recipient;
-	private String subject;
-	private String body;
+@EqualsAndHashCode(callSuper=false)
+public class HtmlEmailRequest extends SimpleEmailRequest {
+	
+	private String pnr;
+	private LocalDate travelDate;
+	private double fare;
 }
