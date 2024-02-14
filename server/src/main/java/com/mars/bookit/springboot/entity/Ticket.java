@@ -21,6 +21,7 @@ public class Ticket {
     @Id
     private String pnr;
     
+    private String email;
     private String firstName;
     private String lastName;
     private String fromStation;

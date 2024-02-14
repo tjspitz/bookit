@@ -44,6 +44,7 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public Ticket postTicket(Passenger passenger) {
         String pnr = makeNewPnr();
+        String email = passenger.getEmail();
         String firstName = passenger.getFirstName();
         String lastName = passenger.getLastName();
         String fromStation = passenger.getFromStation();
@@ -56,8 +57,9 @@ public class TicketServiceImpl implements TicketService {
         String status = "pending";
         double fare = Math.floor(Math.random() * 31) + 50;
 
-        Ticket ticket = new Ticket(pnr, firstName, lastName, fromStation, toStation, trainNo,
-                bookedOn, travelDate, lastUpdated, status, fare);
+        Ticket ticket = new Ticket(
+        		pnr, email, firstName, lastName, fromStation, toStation, 
+        		trainNo, bookedOn, travelDate, lastUpdated, status, fare);
 
         return repository.save(ticket);
     }
