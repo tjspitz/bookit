@@ -20,7 +20,7 @@ public class Ticket {
 
     @Id
     private String pnr;
-    
+
     private String email;
     private String firstName;
     private String lastName;
@@ -28,12 +28,9 @@ public class Ticket {
     private String toStation;
     private String trainNo;
     private LocalDateTime bookedOn;
-    
-    private LocalDate travelDate;    
+
+    private LocalDate travelDate;
     private LocalDateTime lastUpdated;
     private String status;
     private double fare;
 }
-
-// @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-

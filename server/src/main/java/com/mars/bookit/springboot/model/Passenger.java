@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Passenger {
 
     private String email;
-	private String firstName;
+    private String firstName;
     private String lastName;
     private String fromStation;
     private String toStation;

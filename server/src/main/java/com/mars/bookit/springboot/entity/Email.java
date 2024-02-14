@@ -14,14 +14,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Email {
 
-	@Id
-	private int id;
-	private String recipient;
-	private String subject;
+    @Id
+    private int id;
+    private String recipient;
+    private String subject;
 
-	public Email(String recipient, String subject) {
-		super();
-		this.recipient = recipient;
-		this.subject = subject;
-	}
+    public Email(String recipient, String subject) {
+        super();
+        this.recipient = recipient;
+        this.subject = subject;
+    }
 }

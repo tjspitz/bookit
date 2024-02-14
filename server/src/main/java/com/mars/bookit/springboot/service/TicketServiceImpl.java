@@ -58,8 +58,8 @@ public class TicketServiceImpl implements TicketService {
         double fare = Math.floor(Math.random() * 31) + 50;
 
         Ticket ticket = new Ticket(
-        		pnr, email, firstName, lastName, fromStation, toStation, 
-        		trainNo, bookedOn, travelDate, lastUpdated, status, fare);
+                pnr, email, firstName, lastName, fromStation, toStation,
+                trainNo, bookedOn, travelDate, lastUpdated, status, fare);
 
         return repository.save(ticket);
     }
