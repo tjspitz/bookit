@@ -14,6 +14,24 @@ const BookingForm = ({
   return (
     <Form>
       <Row>
+        <Form.Group
+          className="mb-3"
+          controlId="email"
+        >
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            required
+            type="email"
+            className="bg-white-semi"
+            placeholder="your_email@email.com"
+            value={form.email}
+            onChange={(e) =>
+              setForm((s) => ({ ...s, email: e.target.value }))
+            }
+          />
+        </Form.Group>
+      </Row>
+      <Row>
         <Col>
           <Form.Group
             className="mb-3"

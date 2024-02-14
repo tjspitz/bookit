@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Container } from 'react-bootstrap';
-// import logo from '../assets/logo.jpg';
 import { postTicket } from '../lib/api';
 import {
   Confirmation,
@@ -19,8 +18,8 @@ const Booking = () => {
   const [showConfirmation, setShowConfirmation] = useState<boolean>(false);
 
   const handleFormSubmit = async () => {
-    const { pnr, status, fare } = await postTicket(form);
-    setConfirmation({ pnr, status, fare });
+    const confirmationData = await postTicket(form);
+    setConfirmation(confirmationData);
     setShowConfirmation(!showConfirmation);
     setForm({ ...initialPassengerState });
   };

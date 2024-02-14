@@ -11,7 +11,7 @@ const BookingConfirmation = ({
   showConfirmation: boolean;
   setShowConfirmation: Dispatch<SetStateAction<boolean>>;
 }) => {
-  const { pnr, status, fare } = confirmation;
+  const { email, pnr, status, fare } = confirmation;
 
   return (
     <Modal
@@ -43,6 +43,7 @@ const BookingConfirmation = ({
             <b>Fare:</b> ${fare.toPrecision(4)}
           </ListGroup.Item>
         </ListGroup>
+        <p><em>A confirmation has been sent to {email}.</em></p>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={() => setShowConfirmation(!showConfirmation)}>

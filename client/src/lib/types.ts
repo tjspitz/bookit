@@ -1,4 +1,5 @@
 export type Passenger = {
+  email: string;
   firstName: string;
   lastName: string;
   fromStation: string;
@@ -15,15 +16,21 @@ export type TicketInfo = Passenger & {
   fare: number;
 };
 
-export type Confirmation = Pick<TicketInfo, 'pnr' | 'status' | 'fare'>;
+export type Confirmation = Pick<
+  TicketInfo,
+  'email' | 'pnr' | 'travelDate' | 'status' | 'fare'
+>;
 
 export const initialConfirmationState = {
+  email: '',
   pnr: '',
+  travelDate: '',
   status: '',
   fare: 0,
 };
 
 export const initialPassengerState = {
+  email: '',
   firstName: '',
   lastName: '',
   fromStation: '',
