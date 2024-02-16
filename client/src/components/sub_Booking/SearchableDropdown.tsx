@@ -1,7 +1,33 @@
 import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
 import { Dropdown, DropdownButton, Form } from 'react-bootstrap';
-import { FormValidators, Passenger, ValidationHandler, Validators } from '../../lib/types';
+import {
+  FormValidators,
+  Passenger,
+  ValidationHandler,
+  Validators,
+} from '../../lib/types';
 
+/**
+ *
+ * @prop collection
+ * options to generate a dropdown list from
+ * @prop formKey
+ * expects that your `form` state is an object w/ propertires
+ * @prop setForm
+ * allows handlers to update your `form` based on the `formKey` prop
+ * @prop formIsValidated
+ * expects an object similar to your `form` state;
+ * styles the dropdown based upon whether a valid selection is made
+ * @prop validatorKey
+ * expects that your `validator` is an object whose properties are  functions, keyed with some sensible naming convention
+ * @prop handleValidations
+ * an intermediary which takes 2 required args and 1 optional arg;
+ * will update `formIsValidated` state by calling `validator` from the library
+ * @returns a component which will generate a searchable dropdown,
+ * based on the `collection` prop,
+ * will call validators,
+ * and will update the overall `form` state accordingly
+ */
 const SearchableDropdown = ({
   collection,
   formKey,
@@ -40,7 +66,7 @@ const SearchableDropdown = ({
   return (
     <DropdownButton
       title={search || 'Select a Station'}
-      variant={`bg-white-semi border ${formIsValidated[formKey] ? 'border-secondary' : 'border-danger'}`}
+      variant={`${formIsValidated[formKey] ? 'light' : 'outline-danger'}`}
     >
       <Form.Control
         autoFocus
