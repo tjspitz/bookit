@@ -3,25 +3,30 @@ import { Container } from 'react-bootstrap';
 import { postTicket } from '../lib/api';
 import {
   Confirmation,
+  FormValidators,
   Passenger,
   initialConfirmationState,
   initialPassengerState,
+  initialValidatorsState,
 } from '../lib/types';
-import BookingConfirmation from './BookingConfirmation';
-import BookingForm from './BookingForm';
+import BookingConfirmation from './sub_Booking/BookingConfirmation';
+import BookingForm from './sub_Booking/BookingForm';
 
 const Booking = () => {
+  const [form, setForm] = useState<Passenger>({ ...initialPassengerState });
+  const [formIsValidated, setFormIsValidated] = useState<FormValidators>({
+    ...initialValidatorsState,
+  });
   const [confirmation, setConfirmation] = useState<Confirmation>({
     ...initialConfirmationState,
   });
-  const [form, setForm] = useState<Passenger>({ ...initialPassengerState });
   const [showConfirmation, setShowConfirmation] = useState<boolean>(false);
 
-  const handleFormSubmit = async () => {
-    const confirmationData = await postTicket(form);
-    setConfirmation(confirmationData);
-    setShowConfirmation(!showConfirmation);
-    setForm({ ...initialPassengerState });
+  const handleFormSubmit = async (): Promise<void> => {
+      const confirmationData = await postTicket(form);
+      setConfirmation(confirmationData);
+      setShowConfirmation(!showConfirmation);
+      setForm({ ...initialPassengerState });
   };
 
   return (
@@ -30,6 +35,8 @@ const Booking = () => {
         <BookingForm
           form={form}
           setForm={setForm}
+          formIsValidated={formIsValidated}
+          setFormIsValidated={setFormIsValidated}
           handleFormSubmit={handleFormSubmit}
         />
       </Container>

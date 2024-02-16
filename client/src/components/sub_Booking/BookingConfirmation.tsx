@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 import { Button, ListGroup, Modal } from 'react-bootstrap';
-import { Confirmation } from '../lib/types';
+import { Confirmation } from '../../lib/types';
 
 const BookingConfirmation = ({
   confirmation,

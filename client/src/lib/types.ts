@@ -1,3 +1,4 @@
+// ========== DATA TYPES & INITIAL STATES ==========
 export type Passenger = {
   email: string;
   firstName: string;
@@ -45,3 +46,34 @@ export const initialTicketState = {
   bookedOn: '',
   lastUpdated: '',
 };
+
+// ========== FORM TYPES & INITIAL STATES ==========
+export type FormValidators = {
+  email: boolean;
+  firstName: boolean;
+  lastName: boolean;
+  fromStation: boolean;
+  toStation: boolean;
+  travelDate: boolean;
+  trainNo: boolean;
+}
+
+export const initialValidatorsState = {
+  email: false,
+  firstName: false,
+  lastName: false,
+  fromStation: false,
+  toStation: false,
+  travelDate: false,
+  trainNo: false,
+};
+
+export type Validators = {
+  [k: string]: (param: string) => boolean
+};
+
+export type ValidationHandler = (
+  validatorKey: keyof Validators,
+  formKey: keyof Passenger,
+  value?: string
+) => void
