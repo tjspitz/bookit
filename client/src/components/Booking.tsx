@@ -29,6 +29,11 @@ const Booking = () => {
       setForm({ ...initialPassengerState });
   };
 
+  const handleFormReset = () => {
+    setForm({ ...initialPassengerState });
+    setFormIsValidated({ ...initialValidatorsState});
+  };
+
   return (
     <>
       <Container className="border border-dark rounded p-4 bg-light-semi">
@@ -38,6 +43,7 @@ const Booking = () => {
           formIsValidated={formIsValidated}
           setFormIsValidated={setFormIsValidated}
           handleFormSubmit={handleFormSubmit}
+          handleFormReset={handleFormReset}
         />
       </Container>
       <BookingConfirmation

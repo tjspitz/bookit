@@ -5,7 +5,6 @@ import {
   FormValidators,
   Passenger,
   ValidationHandler,
-  initialPassengerState,
 } from '../../lib/types';
 import { validators } from '../../lib/validators';
 import {
@@ -23,12 +22,14 @@ const BookingForm = ({
   formIsValidated,
   setFormIsValidated,
   handleFormSubmit,
+  handleFormReset,
 }: {
   form: Passenger;
   setForm: Dispatch<SetStateAction<Passenger>>;
   formIsValidated: FormValidators;
   setFormIsValidated: Dispatch<SetStateAction<FormValidators>>;
   handleFormSubmit: () => Promise<void>;
+  handleFormReset: () => void;
 }) => {
   const tipDelay = { show: 250, hide: 250 };
 
@@ -263,7 +264,7 @@ const BookingForm = ({
         <Button
           type="button"
           variant="outline-dark"
-          onClick={() => setForm({ ...initialPassengerState })}
+          onClick={handleFormReset}
         >
           Reset
         </Button>
