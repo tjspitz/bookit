@@ -5,12 +5,11 @@ import {
   OverlayTrigger,
   Row,
   Stack,
-  Tooltip,
-  TooltipProps,
 } from 'react-bootstrap';
 import { Outlet, useNavigate } from 'react-router-dom';
 import logo from './assets/logo.png';
 import SearchBar from './components/SearchBar';
+import { BookingTip } from './components/Tooltips';
 
 const App = () => {
   const [pnr, setPnr] = useState<string>('');
@@ -56,9 +55,5 @@ const App = () => {
     </main>
   );
 };
-
-const BookingTip: React.FC<TooltipProps> = (props) => (
-  <Tooltip {...props}>Book a new ticket!</Tooltip>
-);
 
 export default App;
