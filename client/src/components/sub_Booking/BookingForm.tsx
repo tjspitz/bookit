@@ -8,7 +8,13 @@ import {
   initialPassengerState,
 } from '../../lib/types';
 import { validators } from '../../lib/validators';
-import { DateTip, EmailTip, NameTip, StationTip, TrainNoTip } from '../Tooltips';
+import {
+  DateTip,
+  EmailTip,
+  NameTip,
+  StationTip,
+  TrainNoTip,
+} from '../Tooltips';
 import SearchableDropdown from './SearchableDropdown';
 
 const BookingForm = ({
@@ -24,6 +30,8 @@ const BookingForm = ({
   setFormIsValidated: Dispatch<SetStateAction<FormValidators>>;
   handleFormSubmit: () => Promise<void>;
 }) => {
+  const tipDelay = { show: 250, hide: 250 };
+
   /**
    * @description
    * validates a form input - pass the validator needed as first arg,
@@ -37,9 +45,6 @@ const BookingForm = ({
     formKey,
     value = form[formKey]
   ): void => {
-    console.log('validating something...');
-    console.log('validator key: ', validatorKey, 'form key: ', formKey);
-    console.log('arg passed into validator is: ', value);
     setFormIsValidated((s) => {
       return {
         ...s,
@@ -54,7 +59,7 @@ const BookingForm = ({
         <Col>
           <OverlayTrigger
             placement="top"
-            delay={{ show: 250, hide: 400 }}
+            delay={tipDelay}
             overlay={EmailTip}
           >
             <Form.Group
@@ -85,7 +90,7 @@ const BookingForm = ({
         <Col>
           <OverlayTrigger
             placement="top"
-            delay={{ show: 250, hide: 400 }}
+            delay={tipDelay}
             overlay={NameTip}
           >
             <Form.Group
@@ -108,7 +113,7 @@ const BookingForm = ({
         <Col>
           <OverlayTrigger
             placement="top"
-            delay={{ show: 250, hide: 400 }}
+            delay={tipDelay}
             overlay={NameTip}
           >
             <Form.Group
@@ -137,7 +142,7 @@ const BookingForm = ({
         <Col>
           <OverlayTrigger
             placement="top"
-            delay={{ show: 250, hide: 400 }}
+            delay={tipDelay}
             overlay={StationTip}
           >
             <Form.Group
@@ -155,14 +160,13 @@ const BookingForm = ({
                 validatorKey="station"
                 handleValidations={handleValidations}
               />
-
             </Form.Group>
           </OverlayTrigger>
         </Col>
         <Col>
           <OverlayTrigger
             placement="top"
-            delay={{ show: 250, hide: 400 }}
+            delay={tipDelay}
             overlay={StationTip}
           >
             <Form.Group
@@ -191,8 +195,8 @@ const BookingForm = ({
       >
         <Col>
           <OverlayTrigger
-            placement="top"
-            delay={{ show: 250, hide: 400 }}
+            placement="bottom"
+            delay={tipDelay}
             overlay={DateTip}
           >
             <Form.Group
@@ -216,8 +220,8 @@ const BookingForm = ({
         </Col>
         <Col>
           <OverlayTrigger
-            placement="top"
-            delay={{ show: 250, hide: 400 }}
+            placement="bottom"
+            delay={tipDelay}
             overlay={TrainNoTip}
           >
             <Form.Group
