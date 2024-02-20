@@ -1,11 +1,11 @@
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  background-image: url('../assets/trainBg2.jpg');
+  /* background-image: url('../assets/trainBg2.jpg'); */
   height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+  /* background-position: top; */
 }
 
 h1 {

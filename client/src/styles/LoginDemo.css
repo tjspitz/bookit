@@ -1,0 +1,46 @@
+* {
+  color: #272459;
+}
+
+.login-upper {
+  height: 66.6vh;
+}
+
+.login-upper-left {
+  width: 40vw;
+  background-image: url('../assets/pathfinderBgDots.png');
+  background-size: cover;
+}
+
+.login-upper-right {
+  width: 60vw;
+  background: linear-gradient(90deg, #ffffff 0%, #d9d9d9 10%);
+}
+
+.login-lower {
+  height: 33.3vh;
+  background-image: url('../assets/pathfinderLoginBg.png');
+  background-size: cover;
+}
+
+.pic {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.quote {
+  font-size: 1.25rem;
+  font-style: italic;
+  background: linear-gradient(90deg, #d9d9d9 0%, #fff 100%);
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.fake-border {
+  height: 0.25rem;
+  width: 100%;
+  /* margin-bottom: 1rem; */
+  background: linear-gradient(90deg, #ffffff 0%, #d9d9d9 10%, #747474 100%);
+}
+
+footer {
+  text-align: right;
+}

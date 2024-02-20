@@ -21,4 +21,10 @@ export const validators: Validators = {
     return new Date(date) > today;
   },
   train: (trainNo) => trainNo.length === 7,
+  password: (password) => {
+    const regex = /^[a-zA-Z0-9~!@#$%^&*_+-=]*$/;
+    return (password.length > 5 && password.length < 13) ?
+      regex.test(password) :
+      false;
+  }
 };

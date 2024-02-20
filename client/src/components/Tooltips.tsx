@@ -28,3 +28,11 @@ export const TrainNoTip: React.FC<TooltipProps> = (props) => (
     They may only contain letters and numbers.
   </Tooltip>
 );
+
+export const PasswordTip: React.FC<TooltipProps> = (props) => (
+  <Tooltip {...props}>
+    Passwords must be 6 to 12 characters long.
+    They may contain characters (a-z), (A-Z), (0-9),
+    or (~ ! @ # $ % ^ & *).
+  </Tooltip>
+);

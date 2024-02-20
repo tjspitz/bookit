@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import Booking from './components/Booking';
 import Ticket from './components/Ticket';
+import LoginDemo from './components/LoginDemo';
 import { getTicketByPnr } from './lib/api';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/index.css';
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: '/login-demo',
+    element: <LoginDemo />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
