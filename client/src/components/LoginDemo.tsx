@@ -22,7 +22,7 @@ const LoginDemo = () => {
   return (
     <Container fluid>
       {/* uppper section */}
-      <Row className="login-upper">
+      <Row className="login-upper overflow-auto">
         {/* uppper left quadrant */}
         <Col className="login-upper-left">
           <Row className="p-4">
@@ -41,7 +41,12 @@ const LoginDemo = () => {
         </Col>
       </Row>
       {/* lower section (image banner) */}
-      <Row className="login-lower"></Row>
+      <Row>
+        <Col
+          className="login-lower"
+          fluid
+        />
+      </Row>
     </Container>
   );
 };
@@ -182,7 +187,7 @@ const UpperRightForm = () => {
     } else {
       alert('Beep boop, invalid login. Self-destruct imminent.');
       window.location.assign(
-        'https://media1.tenor.com/images/fc07892b15b7d3223bda9569c2a4597f/tenor.gif?itemid=8958390'
+        'https://c.tenor.com/0B9-lEwbYTYAAAAC/tenor.gif'
       );
     }
     setForm({
@@ -250,7 +255,7 @@ const UpperRightForm = () => {
           </Row>
           <Row className="mt-2 ps-5 d-flex flex-row-reverse">
             <a
-              href="#"
+              href="https://c.tenor.com/0B9-lEwbYTYAAAAC/tenor.gif"
               style={{
                 width: 'max-content',
                 marginRight: '1rem',

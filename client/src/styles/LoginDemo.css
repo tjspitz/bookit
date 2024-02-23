@@ -3,7 +3,7 @@
 }
 
 .login-upper {
-  height: 66.6vh;
+  height: 67vh;
 }
 
 .login-upper-left {
@@ -18,7 +18,7 @@
 }
 
 .login-lower {
-  height: 33.3vh;
+  height: 33vh;
   background-image: url('../assets/pathfinderLoginBg.png');
   background-size: cover;
 }
