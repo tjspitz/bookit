@@ -1,7 +1,7 @@
-import { TicketInfo } from '../lib/types';
 import { useLoaderData } from 'react-router-dom';
-import TicketNotFound from './TicketNotFound';
-import TicketFound from './TicketFound';
+import { TicketInfo } from '../lib/types';
+import TicketFound from './sub_Ticket/TicketFound';
+import TicketNotFound from './sub_Ticket/TicketNotFound';
 
 const Ticket = () => {
   const ticket: TicketInfo | string = useLoaderData() as TicketInfo;
