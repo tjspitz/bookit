@@ -17,7 +17,7 @@ const App = () => {
 
   return (
     <main>
-      <Container className="p-2" fluid>
+      <Container className="p-2">
         <Row className="text-center m-4">
           <h1>Welcome to BookIt</h1>
         </Row>
@@ -35,7 +35,7 @@ const App = () => {
             overlay={BookingTip}
           >
             <Figure.Image
-              className="p-2 ms-4 img-btn"
+              className="p-2 ms-2 img-btn"
               width={150}
               src={logo}
               alt="train ticket logo"

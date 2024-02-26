@@ -68,21 +68,26 @@ const SearchableDropdown = ({
       title={search || 'Select a Station'}
       variant={`${formIsValidated[formKey] ? 'light' : 'outline-danger'}`}
     >
-      <Form.Control
-        autoFocus
-        placeholder="find a station..."
-        value={search}
-        onChange={handleSearchChange}
-      />
-      <Dropdown.Divider />
-      {filteredItems.map((option, i) => (
-        <Dropdown.Item
-          key={`o-${i + 1}`}
-          onClick={() => handleSelect(option)}
-        >
-          {option}
-        </Dropdown.Item>
-      ))}
+      <Dropdown.Menu
+        className="overflow-auto"
+        style={{ maxHeight: '250px' }}
+      >
+        <Form.Control
+          autoFocus
+          placeholder="find a station..."
+          value={search}
+          onChange={handleSearchChange}
+        />
+        <Dropdown.Divider />
+        {filteredItems.map((option, i) => (
+          <Dropdown.Item
+            key={`o-${i + 1}`}
+            onClick={() => handleSelect(option)}
+          >
+            {option}
+          </Dropdown.Item>
+        ))}
+      </Dropdown.Menu>
     </DropdownButton>
   );
 };

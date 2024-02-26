@@ -33,7 +33,7 @@ const SearchBar = ({
     <>
       <Form.Control
         required
-        className="me-auto w-50 bg-white-semi"
+        className="me-auto bg-white-semi"
         placeholder="Passenger/Ticket No."
         value={pnr}
         onChange={(e) => setPnr(e.target.value.toUpperCase())}
