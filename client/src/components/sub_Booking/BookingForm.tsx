@@ -1,11 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 import { Button, Col, Form, OverlayTrigger, Row, Stack } from 'react-bootstrap';
 import { stations } from '../../lib/stations';
-import {
-  FormValidators,
-  Passenger,
-  ValidationHandler,
-} from '../../lib/types';
+import { FormValidators, Passenger, ValidationHandler } from '../../lib/types';
 import { validators } from '../../lib/validators';
 import {
   DateTip,

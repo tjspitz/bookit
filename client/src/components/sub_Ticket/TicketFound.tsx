@@ -48,31 +48,31 @@ const TicketFound = ({ ticket }: { ticket: TicketInfo }) => {
             {firstName}&nbsp;{lastName}
           </Card.Title>
           <ListGroup className="list-group-flush">
-            <ListGroup.Item>
+            <ListGroup.Item className="list-item">
               <b>From:</b> {fromStation}
             </ListGroup.Item>
-            <ListGroup.Item>
+            <ListGroup.Item className="list-item">
               <b>To:</b> {toStation}
             </ListGroup.Item>
-            <ListGroup.Item>
+            <ListGroup.Item className="list-item">
               <b>Train No.</b> {trainNo}
             </ListGroup.Item>
-            <ListGroup.Item>
+            <ListGroup.Item className="list-item">
               <b>Booked On:</b> {niceDate(bookedOn)}
             </ListGroup.Item>
-            <ListGroup.Item>
+            <ListGroup.Item className="list-item">
               <b>Departing On:</b> {niceDate(travelDate)}
             </ListGroup.Item>
-            <ListGroup.Item>
+            <ListGroup.Item className="list-item">
               <b>Updated On:</b> {niceDate(lastUpdated)}
             </ListGroup.Item>
-            <ListGroup.Item>
+            <ListGroup.Item className="list-item">
               <b>Ticket Status:</b>{' '}
               <span className={status === 'pending' ? 'pending' : 'confirmed'}>
                 {status}
               </span>
             </ListGroup.Item>
-            <ListGroup.Item>
+            <ListGroup.Item className="list-item">
               <b>Ticket Fare:</b> ${fare.toPrecision(4)}
             </ListGroup.Item>
           </ListGroup>

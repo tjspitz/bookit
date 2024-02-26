@@ -23,7 +23,7 @@ const BookingConfirmation = ({
         <Modal.Title>Ticket Booked!</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <ListGroup>
+        <ListGroup className="mt-2 mb-4">
           <ListGroup.Item
             action
             variant="light"
@@ -43,10 +43,15 @@ const BookingConfirmation = ({
             <b>Fare:</b> ${fare.toPrecision(4)}
           </ListGroup.Item>
         </ListGroup>
-        <p><em>A confirmation has been sent to {email}.</em></p>
+        <p className="ms-2 fst-italic">
+          A confirmation has been sent to {email}.
+        </p>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={() => setShowConfirmation(!showConfirmation)}>
+        <Button
+          variant="outline-dark"
+          onClick={() => setShowConfirmation(!showConfirmation)}
+        >
           Close
         </Button>
       </Modal.Footer>

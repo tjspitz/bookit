@@ -50,6 +50,7 @@ h3 {
 
 .img-btn {
   border: transparent;
+  cursor: pointer;
   border-radius: 10%;
   box-shadow:
     rgba(0, 0, 0, 0.25) 0px 54px 55px,
@@ -71,4 +72,8 @@ h3 {
     rgba(0, 0, 0, 0.5) 0px 15px 35px,
     rgba(0, 0, 0, 0.3) 0px 10px 12px,
     rgba(0, 0, 0, 0.35) 0px 5px 5px;
+}
+
+.list-item:hover {
+  background-color: #c9efff80;
 }

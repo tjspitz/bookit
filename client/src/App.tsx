@@ -17,7 +17,7 @@ const App = () => {
 
   return (
     <main>
-      <Container className="m-4 p-2">
+      <Container className="p-2" fluid>
         <Row className="text-center m-4">
           <h1>Welcome to BookIt</h1>
         </Row>
@@ -26,7 +26,7 @@ const App = () => {
         </Row>
         <Stack
           direction="horizontal"
-          className="p-3 m-4 bg-light-semi border border-dark rounded"
+          className="p-3 m-5 bg-light-semi border border-dark rounded"
           gap={4}
         >
           <OverlayTrigger
@@ -42,14 +42,14 @@ const App = () => {
               onClick={() => navigate('/booking')}
             />
           </OverlayTrigger>
-          <div className="vr ms-4" />
+          <div className="vr" />
           <SearchBar
             pnr={pnr}
             setPnr={setPnr}
           />
         </Stack>
       </Container>
-      <Container className="m-4">
+      <Container className="mt-4 ms-5">
         <Outlet />
       </Container>
     </main>
