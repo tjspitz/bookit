@@ -7,11 +7,13 @@ import Ticket from './components/Ticket';
 import { getTicketByPnr } from './lib/api';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/index.css';
+import ErrorPage from './components/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '/booking',
