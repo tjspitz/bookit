@@ -37,3 +37,6 @@ build/
 .vscode/
 .DS_Store
 .DS_Store?
+
+### HTTPS ###
+server/src/main/java/com/mars/bookit/springboot/config
