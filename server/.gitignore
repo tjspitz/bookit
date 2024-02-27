@@ -6,6 +6,7 @@ target/
 application.properties
 *.p12
 *.crt
+*.pem
 
 ### STS ###
 .apt_generated
@@ -34,3 +35,5 @@ build/
 
 ### VS Code ###
 .vscode/
+.DS_Store
+.DS_Store?
