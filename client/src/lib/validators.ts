@@ -22,7 +22,7 @@ export const validators: Validators = {
   },
   train: (trainNo) => trainNo.length === 7,
   password: (password) => {
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[~!@#$%^&*_+\-=])[a-zA-Z0-9~!@#$%^&*_+\-=]{6,12}$/;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[~!@#$%^&*_+\-=])[a-zA-Z0-9~!@#$%^&*_+\-=]{8,12}$/;
     return regex.test(password);
   }
 };

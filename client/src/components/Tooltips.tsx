@@ -33,7 +33,7 @@ export const PasswordTip: React.FC<TooltipProps> = (props) => (
   <Tooltip {...props}>
     Password must contain at least one character of each type &#40;a-z&#41;, &#40;A-Z&#41;, &#40;0-9&#41;,
     and &#40;~ ! @ # $ % ^ & *&#41;.
-    Password must be 6 to 12 characters long.
+    Password must be 8 to 12 characters long.
   </Tooltip>
 );
 
