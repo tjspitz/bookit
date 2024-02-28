@@ -36,3 +36,9 @@ export const PasswordTip: React.FC<TooltipProps> = (props) => (
     Password must be 6 to 12 characters long.
   </Tooltip>
 );
+
+export const LoginBtnTip: React.FC<TooltipProps> = (props) => (
+  <Tooltip {...props}>
+    Please provide valid entries for email address and password.
+  </Tooltip>
+);

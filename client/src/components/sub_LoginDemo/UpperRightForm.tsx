@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Button, Form, OverlayTrigger, Row } from 'react-bootstrap';
+import { Button, Col, Form, OverlayTrigger, Row } from 'react-bootstrap';
 import { validators } from '../../lib/validators';
-import { EmailTip, PasswordTip } from '../Tooltips';
+import { EmailTip, LoginBtnTip, PasswordTip } from '../Tooltips';
 
 const UpperRightForm = () => {
   const [form, setForm] = useState<{ email: string; password: string }>({
@@ -16,6 +16,7 @@ const UpperRightForm = () => {
     password: false,
   });
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showLoginBtnTip, setShowLoginBtnTip] = useState<boolean>(false);
 
   const validated = Object.values(formIsValidated).every(
     (validator) => validator
@@ -71,6 +72,7 @@ const UpperRightForm = () => {
           className="ps-5 mb-5"
           controlId="email"
         >
+          <Form.Label>Email</Form.Label>
           <OverlayTrigger
             placement="top"
             delay={tipDelay}
@@ -92,6 +94,7 @@ const UpperRightForm = () => {
           className="ps-5 mb-5"
           controlId="password"
         >
+          <Form.Label>Password</Form.Label>
           <OverlayTrigger
             placement="top"
             delay={tipDelay}
@@ -111,39 +114,46 @@ const UpperRightForm = () => {
           <Row className="mt-1 ps-5 d-flex flex-row-reverse">
             <Button
               variant="outline-light"
-              style={{ width: '10%', marginRight: '1rem' }}
+              style={{ width: 'min-content', marginRight: '1rem' }}
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? '👁️' : '🪬'}
             </Button>
           </Row>
-          <Row className="mt-2 ps-5 d-flex flex-row-reverse">
-            <a
-              href="https://c.tenor.com/0B9-lEwbYTYAAAAC/tenor.gif"
-              style={{
-                width: 'max-content',
-                marginRight: '1rem',
-                color: '#272459',
-                textDecoration: 'none',
-                fontStyle: 'italic',
-              }}
-            >
-              Forgot Password
-            </a>
+          <Row className="mt-2">
+            <Col className="d-flex flex-row-reverse">
+              <a
+                className="link"
+                href="https://c.tenor.com/0B9-lEwbYTYAAAAC/tenor.gif"
+              >
+                Forgot Password
+              </a>
+            </Col>
           </Row>
         </Form.Group>
       </Form>
-      <div className="ps-5 mb-5 w-100 d-flex justify-content-center">
-        <Button
-          type="button"
-          className="w-50"
-          disabled={validated ? false : true}
-          variant={validated ? 'danger' : 'outline-secondary'}
-          onClick={handleFormSubmit}
+      <OverlayTrigger
+        placement="bottom"
+        delay={tipDelay}
+        overlay={LoginBtnTip}
+        show={showLoginBtnTip && !validated}
+      >
+        <div
+          className="ps-5 mb-5 w-100 d-flex justify-content-center"
+          onMouseEnter={() => setShowLoginBtnTip(!showLoginBtnTip)}
+          onMouseLeave={() => setShowLoginBtnTip(!showLoginBtnTip)}
         >
-          Login
-        </Button>
-      </div>
+          <Button
+            type="button"
+            className="w-50"
+            disabled={validated ? false : true}
+            variant={validated ? 'danger' : 'outline-secondary'}
+            onClick={handleFormSubmit}
+          >
+            Login
+          </Button>
+        </div>
+      </OverlayTrigger>
     </>
   );
 };
