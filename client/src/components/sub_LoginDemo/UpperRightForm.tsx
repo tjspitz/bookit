@@ -47,7 +47,7 @@ const UpperRightForm = () => {
 
   const handleFormSubmit = () => {
     if (
-      form.email === 'example@pathfinder.mars.com' &&
+      form.email === 'example@mars.com' &&
       form.password === 'potato'
     ) {
       alert('Congratulations, you have signed in correctly!');
@@ -100,26 +100,28 @@ const UpperRightForm = () => {
             delay={tipDelay}
             overlay={PasswordTip}
           >
-            <Form.Control
-              type={showPassword ? 'text' : 'password'}
-              className={`${!formIsValidated.password && 'border border-danger'} bg-white-semi`}
-              placeholder="enter your password"
-              value={form.password}
-              onChange={(e) =>
-                setForm((s) => ({ ...s, password: e.target.value }))
-              }
-              onBlur={() => handleValidations('password', 'password')}
-            />
+            <div className="position-relative">
+              <Form.Control
+                type={showPassword ? 'text' : 'password'}
+                className={`${!formIsValidated.password && 'border border-danger'} bg-white-semi`}
+                placeholder="enter your password"
+                value={form.password}
+                onChange={(e) =>
+                  setForm((s) => ({ ...s, password: e.target.value }))
+                }
+                onBlur={() => handleValidations('password', 'password')}
+              />
+              <div className="d-flex justify-content-end position-absolute end-0 top-50 translate-middle-y">
+                <Button
+                  variant="white"
+                  style={{ width: 'min-content' }}
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? '👁️' : '🪬'}
+                </Button>
+              </div>
+            </div>
           </OverlayTrigger>
-          <Row className="mt-1 ps-5 d-flex flex-row-reverse">
-            <Button
-              variant="outline-light"
-              style={{ width: 'min-content', marginRight: '1rem' }}
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? '👁️' : '🪬'}
-            </Button>
-          </Row>
           <Row className="mt-2">
             <Col className="d-flex flex-row-reverse">
               <a
