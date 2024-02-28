@@ -1,6 +1,8 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import '../styles/LoginDemo.css';
 
+import { useState } from 'react';
+import SelfDestruct from './sub_LoginDemo/SelfDestruct';
 import UpperLeftPics from './sub_LoginDemo/UpperLeftPics';
 import UpperLeftQuotes from './sub_LoginDemo/UpperLeftQuotes';
 import UpperRightFooter from './sub_LoginDemo/UpperRightFooter';
@@ -8,6 +10,8 @@ import UpperRightForm from './sub_LoginDemo/UpperRightForm';
 import UpperRightLogos from './sub_LoginDemo/UpperRightLogos';
 
 const LoginDemo = () => {
+  const [modalShow, setModalShow] = useState<boolean>(false);
+
   return (
     <Container>
       {/* uppper section */}
@@ -33,7 +37,10 @@ const LoginDemo = () => {
         >
           <UpperRightLogos />
           <div className=" mb-5 fake-border"></div>
-          <UpperRightForm />
+          <UpperRightForm
+            modalShow={modalShow}
+            setModalShow={setModalShow}
+          />
           <UpperRightFooter />
         </Col>
       </Row>
@@ -41,6 +48,10 @@ const LoginDemo = () => {
       <Row
         className="login-lower"
         fluid
+      />
+      <SelfDestruct
+        modalShow={modalShow}
+        setModalShow={setModalShow}
       />
     </Container>
   );

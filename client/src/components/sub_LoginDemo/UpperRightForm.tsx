@@ -1,9 +1,15 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { Button, Col, Form, OverlayTrigger, Row } from 'react-bootstrap';
 import { validators } from '../../lib/validators';
 import { EmailTip, LoginBtnTip, PasswordTip } from '../Tooltips';
 
-const UpperRightForm = () => {
+const UpperRightForm = ({
+  modalShow,
+  setModalShow,
+}: {
+  modalShow: boolean;
+  setModalShow: Dispatch<SetStateAction<boolean>>;
+}) => {
   const [form, setForm] = useState<{ email: string; password: string }>({
     email: '',
     password: '',
@@ -46,14 +52,11 @@ const UpperRightForm = () => {
   };
 
   const handleFormSubmit = () => {
-    if (
-      form.email === 'example@mars.com' &&
-      form.password === 'potato'
-    ) {
+    if (form.email === 'example@mars.com' && form.password === 'potato') {
       alert('Congratulations, you have signed in correctly!');
     } else {
       alert('Beep boop, invalid login. Self-destruct imminent.');
-      window.location.assign('https://c.tenor.com/0B9-lEwbYTYAAAAC/tenor.gif');
+      setModalShow(!modalShow);
     }
     setForm({
       email: '',
@@ -126,7 +129,7 @@ const UpperRightForm = () => {
             <Col className="d-flex flex-row-reverse">
               <a
                 className="link"
-                href="https://c.tenor.com/0B9-lEwbYTYAAAAC/tenor.gif"
+                onClick={() => setModalShow(!modalShow)}
               >
                 Forgot Password
               </a>
