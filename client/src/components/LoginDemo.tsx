@@ -11,26 +11,25 @@ const LoginDemo = () => {
   return (
     <Container>
       {/* uppper section */}
-      <Row
-        className="login-upper"
-        xs={12}
-      >
+      <Row className="login-upper">
         {/* uppper left quadrant */}
         <Col
           className="login-upper-left"
-          xs={5}
+          xs={12}
+          md={7}
         >
           <Row className="p-4">
             <UpperLeftPics />
           </Row>
-          <Row>
+          <Row className="p-4">
             <UpperLeftQuotes />
           </Row>
         </Col>
         {/* uppper right quadrant */}
         <Col
           className="login-upper-right"
-          xs={7}
+          xs={12}
+          md={5}
         >
           <UpperRightLogos />
           <div className=" mb-5 fake-border"></div>
@@ -39,12 +38,10 @@ const LoginDemo = () => {
         </Col>
       </Row>
       {/* lower section (image banner) */}
-      {/* <Row>
-        <Col
-          className="login-lower"
-          fluid
-        />
-      </Row> */}
+      <Row
+        className="login-lower"
+        fluid
+      />
     </Container>
   );
 };
