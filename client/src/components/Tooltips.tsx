@@ -31,8 +31,8 @@ export const TrainNoTip: React.FC<TooltipProps> = (props) => (
 
 export const PasswordTip: React.FC<TooltipProps> = (props) => (
   <Tooltip {...props}>
-    Passwords must be 6 to 12 characters long.
-    They may contain characters (a-z), (A-Z), (0-9),
-    or (~ ! @ # $ % ^ & *).
+    Password must contain at least one character of each type &#40;a-z&#41;, &#40;A-Z&#41;, &#40;0-9&#41;,
+    and &#40;~ ! @ # $ % ^ & *&#41;.
+    Password must be 6 to 12 characters long.
   </Tooltip>
 );
