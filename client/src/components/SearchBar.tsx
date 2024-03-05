@@ -30,10 +30,10 @@ const SearchBar = ({
   };
 
   return (
-    <>
+    <div className="d-flex">
       <Form.Control
-        required
-        className="me-auto bg-white-semi"
+        autoFocus
+        className="me-2 bg-white-semi"
         placeholder="Passenger/Ticket No."
         value={pnr}
         onChange={(e) => setPnr(e.target.value.toUpperCase())}
@@ -42,6 +42,7 @@ const SearchBar = ({
       <Button
         type="button"
         variant="dark"
+        className="me-2"
         onClick={() => {
           if (secret === theSecret) {
             window.open(surprise, '_blank');
@@ -51,7 +52,6 @@ const SearchBar = ({
       >
         Search
       </Button>
-      <div className="vr" />
       <Button
         type="button"
         variant="outline-dark"
@@ -59,7 +59,7 @@ const SearchBar = ({
       >
         Reset
       </Button>
-    </>
+    </div>
   );
 };
 

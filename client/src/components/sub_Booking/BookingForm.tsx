@@ -68,7 +68,7 @@ const BookingForm = ({
             >
               <Form.Label>Email address</Form.Label>
               <Form.Control
-                required
+                autoFocus
                 type="email"
                 className={`${!formIsValidated.email && 'border border-danger'} bg-white-semi`}
                 placeholder="your_email@email.com"
