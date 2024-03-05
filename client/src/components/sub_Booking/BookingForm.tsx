@@ -250,11 +250,11 @@ const BookingForm = ({
         xs={6}
         style={{ height: 75 }}
       >
-        <Col>
+        <Col className="mx-2">
           <Button
             type="button"
             disabled={
-              waiting &&
+              !waiting &&
               !Object.values(formIsValidated).every((validator) => validator)
             }
             variant="dark"
@@ -263,7 +263,7 @@ const BookingForm = ({
             BookIt!
           </Button>
         </Col>
-        <Col>
+        <Col className="mx-2">
           <Button
             type="button"
             disabled={waiting}
@@ -273,7 +273,7 @@ const BookingForm = ({
             Reset
           </Button>
         </Col>
-        <Col>{waiting && <WaitingAnimation size={75} />}</Col>
+        <Col className="mx-2">{waiting && <WaitingAnimation size={75} />}</Col>
       </Row>
     </Form>
   );

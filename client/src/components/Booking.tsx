@@ -24,12 +24,12 @@ const Booking = () => {
   const [showConfirmation, setShowConfirmation] = useState<boolean>(false);
 
   const handleFormSubmit = async (): Promise<void> => {
-    setWaiting(!waiting);
+    setWaiting(true);
     const confirmationData = await postTicket(form);
     setConfirmation(confirmationData);
     setShowConfirmation(!showConfirmation);
     setForm({ ...initialPassengerState });
-    setWaiting(!waiting);
+    setWaiting(false);
   };
 
   const handleFormReset = () => {
