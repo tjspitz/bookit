@@ -20,24 +20,28 @@ const Booking = () => {
   const [confirmation, setConfirmation] = useState<Confirmation>({
     ...initialConfirmationState,
   });
+  const [waiting, setWaiting] = useState<boolean>(false);
   const [showConfirmation, setShowConfirmation] = useState<boolean>(false);
 
   const handleFormSubmit = async (): Promise<void> => {
-      const confirmationData = await postTicket(form);
-      setConfirmation(confirmationData);
-      setShowConfirmation(!showConfirmation);
-      setForm({ ...initialPassengerState });
+    setWaiting(!waiting);
+    const confirmationData = await postTicket(form);
+    setConfirmation(confirmationData);
+    setShowConfirmation(!showConfirmation);
+    setForm({ ...initialPassengerState });
+    setWaiting(!waiting);
   };
 
   const handleFormReset = () => {
     setForm({ ...initialPassengerState });
-    setFormIsValidated({ ...initialValidatorsState});
+    setFormIsValidated({ ...initialValidatorsState });
   };
 
   return (
     <>
       <Container className="border border-dark rounded p-4 bg-light-semi">
         <BookingForm
+          waiting={waiting}
           form={form}
           setForm={setForm}
           formIsValidated={formIsValidated}

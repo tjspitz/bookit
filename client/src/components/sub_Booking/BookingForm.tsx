@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import { Button, Col, Form, OverlayTrigger, Row, Stack } from 'react-bootstrap';
+import { Button, Col, Form, OverlayTrigger, Row } from 'react-bootstrap';
 import { stations } from '../../lib/stations';
 import { FormValidators, Passenger, ValidationHandler } from '../../lib/types';
 import { validators } from '../../lib/validators';
@@ -10,9 +10,11 @@ import {
   StationTip,
   TrainNoTip,
 } from '../Tooltips';
+import WaitingAnimation from '../WaitingAnimation';
 import SearchableDropdown from './SearchableDropdown';
 
 const BookingForm = ({
+  waiting,
   form,
   setForm,
   formIsValidated,
@@ -20,6 +22,7 @@ const BookingForm = ({
   handleFormSubmit,
   handleFormReset,
 }: {
+  waiting: boolean;
   form: Passenger;
   setForm: Dispatch<SetStateAction<Passenger>>;
   formIsValidated: FormValidators;
@@ -242,29 +245,36 @@ const BookingForm = ({
           </OverlayTrigger>
         </Col>
       </Row>
-      <Stack
-        direction="horizontal"
-        className="m-4"
-        gap={4}
+      <Row
+        className="d-flex align-items-center"
+        xs={6}
+        style={{ height: 75 }}
       >
-        <Button
-          type="button"
-          disabled={
-            !Object.values(formIsValidated).every((validator) => validator)
-          }
-          variant="dark"
-          onClick={handleFormSubmit}
-        >
-          BookIt!
-        </Button>
-        <Button
-          type="button"
-          variant="outline-dark"
-          onClick={handleFormReset}
-        >
-          Reset
-        </Button>
-      </Stack>
+        <Col>
+          <Button
+            type="button"
+            disabled={
+              waiting &&
+              !Object.values(formIsValidated).every((validator) => validator)
+            }
+            variant="dark"
+            onClick={handleFormSubmit}
+          >
+            BookIt!
+          </Button>
+        </Col>
+        <Col>
+          <Button
+            type="button"
+            disabled={waiting}
+            variant="outline-dark"
+            onClick={handleFormReset}
+          >
+            Reset
+          </Button>
+        </Col>
+        <Col>{waiting && <WaitingAnimation size={75} />}</Col>
+      </Row>
     </Form>
   );
 };
