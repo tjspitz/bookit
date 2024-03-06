@@ -1,16 +1,21 @@
-import { Container } from 'react-bootstrap';
+import ParentContainer from './sub_LoginDemo/PicsPane';
 import '../styles/LoginDemo.css';
+import ChildContainer from './sub_LoginDemo/LoginPane';
+import Header from './sub_LoginDemo/Header';
+import { Row } from 'react-bootstrap';
 
 const LoginDemo = () => {
 
   return (
-    <main className="background">
-      <Container className=" border border-dark rounded p-5 parent-container">
-        <Container className="border border-secondary rounded p-4 child-container">
-          <p>This is the child container</p>
-        </Container>
-      </Container>
-    </main>
+    <div className="background">
+      <Header />
+      <div className=" border border-dark rounded px-1 py-5 parent-container">
+        <ParentContainer />
+        <div className=" border border-secondary rounded p-4 child-container">
+          <ChildContainer />
+        </div>
+      </div>
+    </div>
   );
 };
 

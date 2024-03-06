@@ -1,12 +1,23 @@
 .background {
+  z-index: 0;
   background-color: rgba(127, 127, 127, 0.5); /* semi-opaque color */
   height: 100vh; /* full height of viewport */
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  width: 100vw;
+  justify-content: space-evenly;
   align-items: center;
 }
 
 .parent-container {
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,6 +27,10 @@
 }
 
 .child-container {
+  position: absolute;
+  z-index: 2;
+  /* left: 10vw; */
+
   background-color: rgba(255, 255, 255, 0.8); /* soft gray, slightly transparent */
 }
 
