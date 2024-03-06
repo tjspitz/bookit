@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { Confirmation, Passenger, TicketInfo } from './types';
 
+// const baseTicketUrl = 'http://3.84.60.163:8080/api/tickets';
+// const baseEmailUrl = 'http://3.84.60.163:8080/api/email';
 const baseTicketUrl = 'http://localhost:8080/api/tickets';
 const baseEmailUrl = 'http://localhost:8080/api/email';
 
