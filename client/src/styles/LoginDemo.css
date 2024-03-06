@@ -1,65 +1,64 @@
+.background {
+  background-color: rgba(127, 127, 127, 0.5); /* semi-opaque color */
+  height: 100vh; /* full height of viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.parent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.611); /* lighter, semitransparent shade */
+  height: 66%;
+  width: 66%; /* 66% of viewport width */
+}
+
+.child-container {
+  background-color: rgba(255, 255, 255, 0.8); /* soft gray, slightly transparent */
+}
+
+/* ==== maybe ===== */
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-}
-
-body,
-#root {
   height: 100vh;
-  color: #272459;
-  background-color: #27245980;
 }
 
-.login-upper {
-  min-height: 67vh;
+.font-thin {
+  font-weight: 200;
 }
 
-.login-upper-left {
-  background-image: url('../assets/pathfinderBgDots.png');
-  background-size: cover;
-  background-color: #fff;
+.bg-light-semi {
+  background-color: rgba(248, 249, 250, 0.8);
 }
 
-.login-upper-right {
-  background: linear-gradient(90deg, #fff 0%, #d9d9d9 10%);
+.bg-white-semi {
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
-.login-lower {
-  height: 33vh;
-  background-image: url('../assets/pathfinderLoginBg.png');
-  background-size: cover;
+.img-btn {
+  border: transparent;
+  border-radius: 10%;
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
-.pic {
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+.img-btn:hover {
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
-.quote {
-  font-size: 1.25rem;
-  font-style: italic;
-  background: linear-gradient(90deg, #d9d9d9 0%, #fff 100%);
-  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
-}
-
-.fake-border {
-  height: 0.25rem;
-  width: 100%;
-  background: linear-gradient(90deg, #ffffff 0%, #d9d9d9 10%, #747474 100%);
-}
-
-.link {
-  /* max-width: min-content; */
-  color: inherit;
-  text-decoration: inherit;
-  font-style: italic;
-  text-align: right;
-}
-
-.link:hover {
-  text-shadow: 0 0 0.5px #272459;
-  text-decoration: underline;
-}
-
-footer {
-  text-align: right;
+.img-btn:active {
+  box-shadow:
+    rgba(0, 0, 0, 0.5) 0px 15px 35px,
+    rgba(0, 0, 0, 0.3) 0px 10px 12px,
+    rgba(0, 0, 0, 0.35) 0px 5px 5px;
 }
