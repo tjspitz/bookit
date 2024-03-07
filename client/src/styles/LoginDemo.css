@@ -29,9 +29,8 @@
 .child-container {
   position: absolute;
   z-index: 2;
-  /* left: 10vw; */
-
-  background-color: rgba(255, 255, 255, 0.8); /* soft gray, slightly transparent */
+  width: 66%;
+  background-color: rgba(255, 255, 255, 0.9); /* soft gray, slightly transparent */
 }
 
 /* ==== maybe ===== */
@@ -76,4 +75,12 @@ body {
     rgba(0, 0, 0, 0.5) 0px 15px 35px,
     rgba(0, 0, 0, 0.3) 0px 10px 12px,
     rgba(0, 0, 0, 0.35) 0px 5px 5px;
+}
+
+.pic {
+  height: 100%;
+  width: 100%;
+  border: 2px darkgray solid;
+  border-radius: 50%;
+  background-repeat: none;
 }
