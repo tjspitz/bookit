@@ -2,7 +2,6 @@ import ParentContainer from './sub_LoginDemo/PicsPane';
 import '../styles/LoginDemo.css';
 import ChildContainer from './sub_LoginDemo/LoginPane';
 import Header from './sub_LoginDemo/Header';
-import { Row } from 'react-bootstrap';
 
 const LoginDemo = () => {
 
