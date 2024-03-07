@@ -4,26 +4,20 @@ import Header from './sub_LoginDemo/Header';
 import LoginPane from './sub_LoginDemo/LoginPane';
 import PicsPane from './sub_LoginDemo/PicsPane';
 
-const autoplayTrue = {
-  delay: 3000,
-  disableOnInteraction: false,
-};
-
 const LoginDemo = () => {
-  const [picScroll, setPicScroll] = useState<typeof autoplayTrue | boolean>(
-    autoplayTrue
-  );
+  const [autoPlay, setAutoPlay] = useState<boolean>(true);
 
   return (
     <div className="background">
       <Header />
       <div className=" border border-dark rounded px-1 py-5 parent-container">
-        <PicsPane picScroll={picScroll} />
-        <div className=" border border-secondary rounded p-4 child-container">
-          <LoginPane
-            autoplayTrue={autoplayTrue}
-            setPicScroll={setPicScroll}
-          />
+        <PicsPane autoPlay={autoPlay} />
+        <div
+          className=" border border-secondary rounded p-4 child-container shadowed"
+          onMouseEnter={() => setAutoPlay(false)}
+          onMouseLeave={() => setAutoPlay(true)}
+        >
+          <LoginPane />
         </div>
       </div>
     </div>
@@ -31,5 +25,3 @@ const LoginDemo = () => {
 };
 
 export default LoginDemo;
-
-// when we enter information, the carousel stops

@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import { Button, Col, Form, OverlayTrigger, Row } from 'react-bootstrap';
 import { validators } from '../../lib/validators';
 import { EmailTip, LoginBtnTip, PasswordTip } from '../Tooltips';
@@ -6,13 +6,7 @@ import Footer from './Footer';
 
 import '../../styles/LoginDemo.css';
 
-const LoginPane = ({
-  setPicScroll,
-  autoplayTrue,
-}: {
-  setPicScroll: Dispatch<SetStateAction<any>>;
-  autoPlayTrue: any;
-}) => {
+const LoginPane = () => {
   const [form, setForm] = useState<{ email: string; password: string }>({
     email: '',
     password: '',
@@ -55,7 +49,7 @@ const LoginPane = ({
   };
 
   const handleFormSubmit = () => {
-    return null;
+    alert('You tried to sign in, good job!');
   };
 
   return (
@@ -79,11 +73,7 @@ const LoginPane = ({
               onChange={(e) =>
                 setForm((s) => ({ ...s, email: e.target.value }))
               }
-              onBlur={() => {
-                handleValidations('email', 'email');
-                setPicScroll({ ...autoplayTrue });
-              }}
-              onFocus={() => setPicScroll(false)}
+              onBlur={() => handleValidations('email', 'email')}
             />
           </OverlayTrigger>
         </Form.Group>
@@ -106,11 +96,7 @@ const LoginPane = ({
                 onChange={(e) =>
                   setForm((s) => ({ ...s, password: e.target.value }))
                 }
-                onBlur={() => {
-                  handleValidations('password', 'password');
-                  setPicScroll({ ...autoplayTrue });
-                }}
-                onFocus={() => setPicScroll(false)}
+                onBlur={() => handleValidations('password', 'password')}
               />
               <div className="d-flex justify-content-end position-absolute end-0 top-50 translate-middle-y">
                 <Button
